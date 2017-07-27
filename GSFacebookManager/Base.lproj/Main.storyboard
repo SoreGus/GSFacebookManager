@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GSFacebookManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxb-el-43V">
+                                <rect key="frame" x="92" y="547" width="190" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2bg-io-s8K"/>
+                                    <constraint firstAttribute="width" constant="190" id="Gtl-68-cgM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs5-Ct-Mf0">
+                                <rect key="frame" x="121" y="606" width="132" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="AK3-vX-kOq"/>
+                                    <constraint firstAttribute="width" constant="132" id="Wkm-JM-yyc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.66427871689999995" green="0.68012821130000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sO4-zj-cmB"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKd-9C-xgg">
+                                <rect key="frame" x="162" y="64" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="clk-cz-O0D"/>
+                                    <constraint firstAttribute="width" constant="50" id="mPr-ov-31D"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66427871686376683" green="0.68012821127058065" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hs5-Ct-Mf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5ui-nQ-SY5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hs5-Ct-Mf0" secondAttribute="bottom" constant="20" id="7RP-Uq-3Wv"/>
+                            <constraint firstItem="Hxb-el-43V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LNi-jz-aWG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hxb-el-43V" secondAttribute="bottom" constant="86" id="Rlm-jE-U7D"/>
+                            <constraint firstItem="cKd-9C-xgg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X3L-9M-vp6"/>
+                            <constraint firstItem="cKd-9C-xgg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="n1q-3c-lmF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="hs5-Ct-Mf0" id="X10-JU-HUt"/>
+                        <outlet property="profilePictureImageView" destination="cKd-9C-xgg" id="tKi-yp-EFZ"/>
+                        <outlet property="statusLabel" destination="Hxb-el-43V" id="Sce-Pt-MJr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="96.7016491754123"/>
+        </scene>
+    </scenes>
+</document>
