@@ -67,23 +67,18 @@ class GSFacebookManager: NSObject {
                                 if let urlString = data["url"] as? String{
                                     
                                     completion(true,urlString)
+                                    return
                                     
-                                } else{
-                                    completion(false,nil)
                                 }
                                 
-                            } else{
-                                completion(false,nil)
                             }
                             
-                        } else{
-                           completion(false,nil)
                         }
-                    } else{
-                        completion(false,nil)
                     }
                     
                 }
+                
+                completion(false,nil)
                 
             })
             
