@@ -16,8 +16,8 @@
 		956ED9D81F2A54B600D5B44E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956ED9D41F2A54B600D5B44E /* FBSDKCoreKit.framework */; };
 		956ED9D91F2A54B600D5B44E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956ED9D51F2A54B600D5B44E /* FBSDKLoginKit.framework */; };
 		956ED9DA1F2A54B600D5B44E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956ED9D61F2A54B600D5B44E /* FBSDKShareKit.framework */; };
-		956ED9DC1F2A5AB900D5B44E /* GSFacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956ED9DB1F2A5AB900D5B44E /* GSFacebookManager.swift */; };
-		956ED9DE1F2A62E200D5B44E /* FBPermissionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956ED9DD1F2A62E200D5B44E /* FBPermissionsConstants.swift */; };
+		95CA8DC41F2A88B900C59955 /* FBPermissionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA8DC21F2A88B900C59955 /* FBPermissionsConstants.swift */; };
+		95CA8DC51F2A88B900C59955 /* GSFacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA8DC31F2A88B900C59955 /* GSFacebookManager.swift */; };
 		C1D46FC22E5DCD6AC272E9FA /* Pods_GSFacebookManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A062F5CCD5FB00D23DB5337C /* Pods_GSFacebookManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +34,8 @@
 		956ED9D41F2A54B600D5B44E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../FacebookSDKs-iOS-4/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		956ED9D51F2A54B600D5B44E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../FacebookSDKs-iOS-4/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		956ED9D61F2A54B600D5B44E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../FacebookSDKs-iOS-4/FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		956ED9DB1F2A5AB900D5B44E /* GSFacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSFacebookManager.swift; sourceTree = "<group>"; };
-		956ED9DD1F2A62E200D5B44E /* FBPermissionsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBPermissionsConstants.swift; sourceTree = "<group>"; };
+		95CA8DC21F2A88B900C59955 /* FBPermissionsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBPermissionsConstants.swift; sourceTree = "<group>"; };
+		95CA8DC31F2A88B900C59955 /* GSFacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSFacebookManager.swift; sourceTree = "<group>"; };
 		A062F5CCD5FB00D23DB5337C /* Pods_GSFacebookManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSFacebookManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FA2A07E07BDC9664E845F8 /* Pods-GSFacebookManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSFacebookManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSFacebookManager/Pods-GSFacebookManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,8 +96,7 @@
 			children = (
 				956ED9B81F2A50D900D5B44E /* AppDelegate.swift */,
 				956ED9BA1F2A50D900D5B44E /* ViewController.swift */,
-				956ED9DB1F2A5AB900D5B44E /* GSFacebookManager.swift */,
-				956ED9DD1F2A62E200D5B44E /* FBPermissionsConstants.swift */,
+				95CA8DC11F2A88B900C59955 /* GSFacebookKit */,
 				956ED9BC1F2A50D900D5B44E /* Main.storyboard */,
 				956ED9BF1F2A50D900D5B44E /* Assets.xcassets */,
 				956ED9C11F2A50D900D5B44E /* LaunchScreen.storyboard */,
@@ -116,6 +115,15 @@
 				956ED9D61F2A54B600D5B44E /* FBSDKShareKit.framework */,
 			);
 			name = FacebookSDK;
+			sourceTree = "<group>";
+		};
+		95CA8DC11F2A88B900C59955 /* GSFacebookKit */ = {
+			isa = PBXGroup;
+			children = (
+				95CA8DC21F2A88B900C59955 /* FBPermissionsConstants.swift */,
+				95CA8DC31F2A88B900C59955 /* GSFacebookManager.swift */,
+			);
+			path = GSFacebookKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,9 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956ED9DE1F2A62E200D5B44E /* FBPermissionsConstants.swift in Sources */,
-				956ED9DC1F2A5AB900D5B44E /* GSFacebookManager.swift in Sources */,
 				956ED9BB1F2A50D900D5B44E /* ViewController.swift in Sources */,
+				95CA8DC51F2A88B900C59955 /* GSFacebookManager.swift in Sources */,
+				95CA8DC41F2A88B900C59955 /* FBPermissionsConstants.swift in Sources */,
 				956ED9B91F2A50D900D5B44E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

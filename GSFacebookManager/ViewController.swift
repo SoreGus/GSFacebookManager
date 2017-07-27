@@ -23,19 +23,37 @@ class ViewController: UIViewController {
             statusLabel.text = "Online"
             loginButton.isHidden = true
             
-            GSFacebookManager.getUserProfileImage(completion: { (success, stringURL) in
-                
-                self.profilePictureImageView.sd_setImage(with: URL.init(string: stringURL!))
-                
-            })
+            self.loadUser()
+            
+            
         } else{
             statusLabel.text = "Offline"
         }
     }
+    
+    func loadUser(){
+        
+        GSFacebookManager.getUserProfileImage(completion: { (success, stringURL) in
+            
+            if success == true{
+                self.profilePictureImageView.sd_setImage(with: URL.init(string: stringURL!))
+            }
+            
+        })
+        
+        GSFacebookManager.getUserBasicInfo { (success) in
+            
+            print("Teste")
+            
+        }
+        
+    }
 
     @IBAction func loginButtonAction(_ sender: Any) {
         
-        GSFacebookManager.login(viewController: self, readPermissions: nil) { (success) in
+        let additionalPermissions = GSFacebookManager.basicReadPermissions(additionalPermissions: [FBPermissions.kUserBirthday.rawValue])
+        
+        GSFacebookManager.login(viewController: self, readPermissions: additionalPermissions) { (success) in
             
             if success == false{
                 
@@ -48,6 +66,7 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async{
                     self.statusLabel.text = "Online"
                     self.loginButton.isHidden = true
+                    self.loadUser()
                 }
                 
             }
