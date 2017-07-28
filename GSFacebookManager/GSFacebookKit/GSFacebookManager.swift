@@ -92,7 +92,7 @@ class GSFacebookManager: NSObject {
         
     }
     
-    class func getUserBasicInfo(completion:@escaping (_ success:Bool)->Void){
+    class func getUserBasicInfo(completion:@escaping (_ success:Bool,_ user:GSFBUser?)->Void){
         
         if let permissions = self.getReadPermissions(){
             
@@ -100,28 +100,30 @@ class GSFacebookManager: NSObject {
                 
                 let params = ["fields" : "gender,birthday,first_name"]
                 let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
-                graphRequest?.start(completionHandler: { (request, response, error) in
+                graphRequest?.start(completionHandler: { (_ , response, error) in
                     
                     if error != nil{
                         
-                        completion(false)
+                        completion(false,nil)
+                        return
                         
                     } else{
                         
-                        print(response)
+                        completion(true,GSFBUser.map(json: response!))
+                        return
                         
                     }
-                    
-                    completion(false)
                     
                 })
                 
             } else{
-                completion(false)
+                completion(false,nil)
+                return
             }
             
         } else{
-            completion(false)
+            completion(false,nil)
+            return
         }
         
     }

@@ -41,9 +41,11 @@ class ViewController: UIViewController {
             
         })
         
-        GSFacebookManager.getUserBasicInfo { (success) in
+        GSFacebookManager.getUserBasicInfo { (success,user) in
             
-            print("Teste")
+            if success == true{
+                print(user)
+            }
             
         }
         
