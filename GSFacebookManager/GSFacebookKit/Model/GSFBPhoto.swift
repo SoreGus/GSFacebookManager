@@ -11,20 +11,20 @@ import UIKit
 class GSFBPhoto: NSObject {
 
     var id:String!
-    var urlString:String!
+    var images:[GSFBImage] = []
     var name:String? = nil
     
-    init(id:String,urlString:String){
+    init(id:String){
         
         super.init()
         self.id = id
-        self.urlString = urlString
         
     }
     
-    convenience init(id:String,urlString:String,name:String?){
+    init(id:String,name:String?){
         
-        self.init(id: id,urlString:urlString)
+        super.init()
+        self.id = id
         self.name = name
         
     }
@@ -37,7 +37,7 @@ class GSFBPhoto: NSObject {
                 
                 if let urlString = dict["source"]{
                     
-                    let photo = GSFBPhoto.init(id: photoId, urlString:urlString, name:dict["name"])
+                    let photo = GSFBPhoto.init(id: photoId, name:dict["name"])
                     
                     return photo
                 }
@@ -51,6 +51,28 @@ class GSFBPhoto: NSObject {
         }
         
         return nil
+    }
+    
+    func getSmallerImage() -> GSFBImage?{
+        
+        if images.count > 0{
+            
+            var smallerImage:GSFBImage = images[0]
+            
+            for image in images{
+                
+                if smallerImage.imageSize.width > image.imageSize.width{
+                    smallerImage = image
+                }
+                
+            }
+            
+            return smallerImage
+            
+        }
+        
+        return nil
+        
     }
     
 }

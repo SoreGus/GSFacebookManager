@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
     func loadUser(){
         
-        GSFacebookManager.getUserProfileImage(completion: { (success, stringURL) in
+        GSFBUserManager.getUserProfileImage(completion: { (success, stringURL) in
             
             if success == true{
                 self.profilePictureImageView.sd_setImage(with: URL.init(string: stringURL!))
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             
         })
         
-        GSFacebookManager.getUserBasicInfo { (success,user) in
+        GSFBUserManager.getUserBasicInfo { (success,user) in
             
             if success == true{
                 print(user!)
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             
         }
         
-        GSFacebookManager.getUserPhotos { (success, photo) in
+        GSFBPhotoManager.getUserPhotos { (success, photo) in
             
             if success == true{
                 self.arrayPhotos.append(photo!)
@@ -64,6 +64,14 @@ class ViewController: UIViewController {
             
         }
         
+        GSFBPhotoManager.getPhoto(photoId: "406618459398067") { (success, photo) in
+            
+            if success == true{
+                self.arrayPhotos.append(photo!)
+                self.collectionView.reloadData()
+            }
+            
+        }
     }
 
     @IBAction func loginButtonAction(_ sender: Any) {
@@ -116,7 +124,7 @@ extension ViewController : UICollectionViewDelegate , UICollectionViewDataSource
         
         let photo = self.arrayPhotos[indexPath.row]
         
-        cell.imageView.sd_setImage(with: URL.init(string: photo.urlString))
+        cell.imageView.sd_setImage(with: URL.init(string: photo.getSmallerImage()!.urlString))
         cell.imageView.contentMode = UIViewContentMode.scaleAspectFit
         
         return cell
