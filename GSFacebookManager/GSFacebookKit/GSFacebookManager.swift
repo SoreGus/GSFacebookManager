@@ -174,6 +174,111 @@ class GSFacebookManager: NSObject {
         
     }
     
+    class func getUserPhotos(completion:@escaping (_ success:Bool,_ photo:GSFBPhoto?)->Void){
+    
+        if isLoggedIn() == true{
+            
+            let params = ["fields" : "photos"]
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
+            graphRequest?.start(completionHandler: { (requestConnection , response, error) in
+                if error != nil{
+                    completion(false,nil)
+                    
+                } else{
+                    
+                    if let json = response as? [String:Any]{
+                        
+                        if let photos = json["photos"] as? [String:Any]{
+                            
+                            if let data = photos["data"] as? [Any]{
+                                
+                                for photo in data{
+                                    
+                                    if let photoJson = photo as? [String:String]{
+                                        self.getPhoto(photoId: photoJson["id"]!, completion: { (success, photoObject) in
+                                            
+                                            completion(success,photoObject)
+                                            
+                                        })
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    completion(false,nil)
+                    
+                }
+                
+                completion(false,nil)
+                
+            })
+            
+        } else{
+            
+            completion(false,nil)
+            
+        }
+        
+    }
+    
+    class func getPhoto(photoId:String,completion:@escaping (_ success:Bool,_ photo:GSFBPhoto?)->Void){
+        
+        if isLoggedIn() == true{
+            
+            let params = ["fields" : "images"]
+            let graphRequest = FBSDKGraphRequest(graphPath: photoId, parameters: params)
+            graphRequest?.start(completionHandler: { (_ , response, error) in
+                
+                if error != nil{
+                    
+                    completion(false,nil)
+                    
+                } else{
+                    
+                    if let photo = response as? [String:Any]{
+                        
+                        if let images = photo["images"] as? [Any]{
+                            
+                            if images.count > 0{
+                                
+                                if let image = images[0] as? [String:Any]{
+                                    
+                                    if let source = image["source"] as? String{
+                                        
+                                        let photoObject = GSFBPhoto.init(id: photoId, urlString: source)
+                                        completion(true,photoObject)
+                                        return
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    completion(false,nil)
+                    
+                }
+                
+                completion(false,nil)
+                
+            })
+            
+        } else{
+            
+            completion(false,nil)
+            
+        }
+        
+    }
+    
     class func isLoggedIn() -> Bool{
         
         if FBSDKAccessToken.current() != nil{

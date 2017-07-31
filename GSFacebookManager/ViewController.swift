@@ -13,11 +13,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loginButton: UIButton!
+    
+    internal var arrayPhotos:[GSFBPhoto] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         if GSFacebookManager.isLoggedIn(){
             statusLabel.text = "Online"
@@ -44,7 +50,16 @@ class ViewController: UIViewController {
         GSFacebookManager.getUserBasicInfo { (success,user) in
             
             if success == true{
-                print(user)
+                print(user!)
+            }
+            
+        }
+        
+        GSFacebookManager.getUserPhotos { (success, photo) in
+            
+            if success == true{
+                self.arrayPhotos.append(photo!)
+                self.collectionView.reloadData()
             }
             
         }
@@ -53,7 +68,7 @@ class ViewController: UIViewController {
 
     @IBAction func loginButtonAction(_ sender: Any) {
         
-        let additionalPermissions = GSFacebookManager.basicReadPermissions(additionalPermissions: [FBPermissions.kUserBirthday.rawValue])
+        let additionalPermissions = GSFacebookManager.basicReadPermissions(additionalPermissions: [FBPermissions.kUserBirthday.rawValue,FBPermissions.kUserPhotos.rawValue])
         
         GSFacebookManager.login(viewController: self, readPermissions: additionalPermissions) { (success) in
             
@@ -82,5 +97,31 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController : UICollectionViewDelegate , UICollectionViewDataSource{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.arrayPhotos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
+        
+        
+        let photo = self.arrayPhotos[indexPath.row]
+        
+        cell.imageView.sd_setImage(with: URL.init(string: photo.urlString))
+        cell.imageView.contentMode = UIViewContentMode.scaleAspectFit
+        
+        return cell
+        
+    }
+    
 }
 

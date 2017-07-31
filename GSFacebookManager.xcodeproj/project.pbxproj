@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9557A7FA1F2F78A300486ECB /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9557A7F91F2F78A300486ECB /* PhotoCollectionViewCell.swift */; };
 		956ED9B91F2A50D900D5B44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956ED9B81F2A50D900D5B44E /* AppDelegate.swift */; };
 		956ED9BB1F2A50D900D5B44E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956ED9BA1F2A50D900D5B44E /* ViewController.swift */; };
 		956ED9BE1F2A50D900D5B44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956ED9BC1F2A50D900D5B44E /* Main.storyboard */; };
@@ -18,12 +19,14 @@
 		956ED9DA1F2A54B600D5B44E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956ED9D61F2A54B600D5B44E /* FBSDKShareKit.framework */; };
 		95CA8DC41F2A88B900C59955 /* FBPermissionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA8DC21F2A88B900C59955 /* FBPermissionsConstants.swift */; };
 		95CA8DC51F2A88B900C59955 /* GSFacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA8DC31F2A88B900C59955 /* GSFacebookManager.swift */; };
+		95D9453E1F2B7EA000154875 /* GSFBPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D9453D1F2B7EA000154875 /* GSFBPhoto.swift */; };
 		95EE18621F2B662200F898E5 /* GSFBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE18611F2B662200F898E5 /* GSFBUser.swift */; };
 		C1D46FC22E5DCD6AC272E9FA /* Pods_GSFacebookManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A062F5CCD5FB00D23DB5337C /* Pods_GSFacebookManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		836F8C03E2914BACDC926C7D /* Pods-GSFacebookManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSFacebookManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-GSFacebookManager/Pods-GSFacebookManager.release.xcconfig"; sourceTree = "<group>"; };
+		9557A7F91F2F78A300486ECB /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		956ED9B51F2A50D900D5B44E /* GSFacebookManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSFacebookManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956ED9B81F2A50D900D5B44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956ED9BA1F2A50D900D5B44E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		956ED9D61F2A54B600D5B44E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../FacebookSDKs-iOS-4/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		95CA8DC21F2A88B900C59955 /* FBPermissionsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBPermissionsConstants.swift; sourceTree = "<group>"; };
 		95CA8DC31F2A88B900C59955 /* GSFacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSFacebookManager.swift; sourceTree = "<group>"; };
+		95D9453D1F2B7EA000154875 /* GSFBPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSFBPhoto.swift; sourceTree = "<group>"; };
 		95EE18611F2B662200F898E5 /* GSFBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSFBUser.swift; sourceTree = "<group>"; };
 		A062F5CCD5FB00D23DB5337C /* Pods_GSFacebookManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSFacebookManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FA2A07E07BDC9664E845F8 /* Pods-GSFacebookManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSFacebookManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSFacebookManager/Pods-GSFacebookManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			children = (
 				956ED9B81F2A50D900D5B44E /* AppDelegate.swift */,
 				956ED9BA1F2A50D900D5B44E /* ViewController.swift */,
+				9557A7F91F2F78A300486ECB /* PhotoCollectionViewCell.swift */,
 				95CA8DC11F2A88B900C59955 /* GSFacebookKit */,
 				956ED9BC1F2A50D900D5B44E /* Main.storyboard */,
 				956ED9BF1F2A50D900D5B44E /* Assets.xcassets */,
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				95EE18611F2B662200F898E5 /* GSFBUser.swift */,
+				95D9453D1F2B7EA000154875 /* GSFBPhoto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +295,8 @@
 				95CA8DC51F2A88B900C59955 /* GSFacebookManager.swift in Sources */,
 				95CA8DC41F2A88B900C59955 /* FBPermissionsConstants.swift in Sources */,
 				956ED9B91F2A50D900D5B44E /* AppDelegate.swift in Sources */,
+				9557A7FA1F2F78A300486ECB /* PhotoCollectionViewCell.swift in Sources */,
+				95D9453E1F2B7EA000154875 /* GSFBPhoto.swift in Sources */,
 				95EE18621F2B662200F898E5 /* GSFBUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
