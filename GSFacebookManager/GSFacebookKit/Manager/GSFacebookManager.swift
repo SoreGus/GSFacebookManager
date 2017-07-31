@@ -116,7 +116,6 @@ class GSFacebookManager: NSObject {
             return true
             
         }
-        
         return false
     }
     

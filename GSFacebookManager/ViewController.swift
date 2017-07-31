@@ -55,23 +55,34 @@ class ViewController: UIViewController {
             
         }
         
-        GSFBPhotoManager.getUserPhotos { (success, photo) in
+        GSFBPhotoManager.getAlbumPhotos(albumId: "106775126066052") { (success, photo) in
             
             if success == true{
+                
                 self.arrayPhotos.append(photo!)
                 self.collectionView.reloadData()
+                
             }
             
         }
         
-        GSFBPhotoManager.getPhoto(photoId: "406618459398067") { (success, photo) in
-            
-            if success == true{
-                self.arrayPhotos.append(photo!)
-                self.collectionView.reloadData()
-            }
-            
-        }
+//        GSFBPhotoManager.getUserPhotos { (success, photo) in
+//            
+//            if success == true{
+//                self.arrayPhotos.append(photo!)
+//                self.collectionView.reloadData()
+//            }
+//            
+//        }
+//        
+//        GSFBPhotoManager.getPhoto(photoId: "406618459398067") { (success, photo) in
+//            
+//            if success == true{
+//                self.arrayPhotos.append(photo!)
+//                self.collectionView.reloadData()
+//            }
+//            
+//        }
     }
 
     @IBAction func loginButtonAction(_ sender: Any) {

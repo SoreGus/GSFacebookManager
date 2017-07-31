@@ -68,12 +68,67 @@ class GSFBPhotoManager: NSObject {
         
     }
     
+    class func getAlbumPhotos(albumId:String,completion:@escaping (_ success:Bool,_ photo:GSFBPhoto?)->Void){
+        
+        if GSFacebookManager.isLoggedIn() == true{
+            
+            let params = ["fields" : "photos"]
+            let graphRequest = FBSDKGraphRequest(graphPath: albumId, parameters: params)
+            graphRequest?.start(completionHandler: { (requestConnection , response, error) in
+                if error != nil{
+                    completion(false,nil)
+                    
+                } else{
+                    
+                    if let json = response as? [String:Any]{
+                        
+                        if let photos = json["photos"] as? [String:Any]{
+                            
+                            if let data = photos["data"] as? [[String:String]]{
+                                
+                                for photo in data{
+                                    
+                                    if let photoId = photo["id"]{
+                                        
+                                        self.getPhoto(photoId: photoId, completion: { (success, photoObj) in
+                                            
+                                            if success == true{
+                                                
+                                                completion(success,photoObj)
+                                                
+                                            }
+                                            
+                                        })
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                completion(false,nil)
+                
+            })
+        }
+        
+    }
+    
     class func getPhoto(photoId:String,completion:@escaping (_ success:Bool,_ photo:GSFBPhoto?)->Void){
     
-        let photoObj = GSFBPhoto.init(id: photoId)
-        self.getPhoto(photoObj: photoObj) { (success, photo) in
+        if GSFacebookManager.isLoggedIn() == true{
             
-            completion(success,photo)
+            let photoObj = GSFBPhoto.init(id: photoId)
+            self.getPhoto(photoObj: photoObj) { (success, photo) in
+                
+                completion(success,photo)
+                
+            }
             
         }
         
